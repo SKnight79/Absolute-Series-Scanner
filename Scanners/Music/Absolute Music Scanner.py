@@ -9,13 +9,13 @@ except:   platform="other"
 #  try:    platform = Platform.OS.lower()   # Platform.OS:  Windows, MacOSX, or Linux
 #  except: p5latform = ""
 if   (platform == 'win32'  or platform == 'windows'): LOG_PATH = os.path.expandvars( '%LOCALAPPDATA%\\Plex Media Server\Logs' )
-elif (platform == 'darwin' or platform == 'macosx'):  LOG_PATH = os.path.expandvars( '$HOME/Library/Application Support/Plex Media Server\Logs' )
-elif 'linux' in platform:                             LOG_PATH = os.path.expandvars( '$PLEX_HOME/Library/Application Support/Plex Media Server\Logs' )                          
+elif (platform == 'darwin' or platform == 'macosx'):  LOG_PATH = os.path.expandvars( '$HOME/Library/Application Support/Plex Media Server/Logs' )
+elif 'linux' in platform:                             LOG_PATH = os.path.expandvars( '$PLEX_HOME/Library/Application Support/Plex Media Server/Logs' )                          
 if not os.path.isdir(LOG_PATH):                       LOG_PATH = os.path.expanduser('~')
 logging.basicConfig(filename=os.path.join(LOG_PATH, LOG_FILE), format=LOG_FORMAT, level=logging.DEBUG)  
 
 ### Log function ########################################################################################
-def Log(entry, filename='Plex Media Scanner Custom.log'): #need relative path
+def Log(entry, filename='Plex Music Scanner.log'): #need relative path
   logging.info(entry + "\r\n") # allow to use windows notepad with correct line feeds
   print entry                  # when ran from console
 
